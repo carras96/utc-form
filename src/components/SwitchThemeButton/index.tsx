@@ -4,8 +4,8 @@ import { IconSun, IconMoonStars } from '@tabler/icons-react';
 
 const SwitchThemeButton = () => {
   const theme = useMantineTheme();
-  const { setColorScheme } = useMantineColorScheme();
-  const [checked, setChecked] = useState(false);
+  const { setColorScheme, colorScheme } = useMantineColorScheme();
+  const [checked, setChecked] = useState(colorScheme === 'light');
 
   const onHandleChange = (isChecked: boolean) => {
     if (isChecked) {
