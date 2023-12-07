@@ -11,14 +11,20 @@ import {
   TextInput,
   rem,
 } from '@mantine/core';
-import React from 'react';
+import React, { useContext } from 'react';
 import cx from 'clsx';
 import { useForm } from '@mantine/form';
 import { useMediaQuery } from '@mantine/hooks';
 import globalCss from '../../styles/global.module.css';
+// import { AppContext } from '../../Providers/AppProvider';
 
 const ManufacturingEnterpriseForm = () => {
   const isMobile = useMediaQuery('(max-width: 767px)');
+
+  // const { serviceAccountAuth } = useContext(AppContext);
+
+  console.log('=========');
+
   const form = useForm({
     initialValues: {
       nameEnterprise: '',

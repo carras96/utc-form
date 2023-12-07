@@ -30,61 +30,63 @@ const AppShellWrapper = ({ children }: { children: ReactNode }) => {
       padding="md"
     >
       <AppShell.Header>
-        <Flex gap={rem(12)} align="center" justify="flex-start" px={rem(24)} h="100%">
-          <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="md" />
-          <Flex
-            gap={rem(8)}
-            align="center"
-            justify="flex-start"
-            style={{ cursor: 'pointer' }}
-            onClick={() => {
-              navigate('/');
-              close();
-            }}
-          >
-            <Avatar src={Logo} alt="logo" size={isMobile ? 48 : 64} />
-            <Flex gap={rem(4)} align="flex-start" justify="center" direction="column">
-              <Text className={globalCss.logoText}>TRƯỜNG ĐẠI HỌC GIAO THÔNG VẬN TẢI</Text>
-              {!isMobileSmall && (
-                <Text className={globalCss.logoSubText}>
-                  UNIVERSITY OF TRANSPORT AND COMMUNICATIONS
-                </Text>
-              )}
+        <Flex gap={12} align="center" justify="space-between" px={rem(24)} h="100%">
+          <Flex gap={rem(12)} align="center" justify="flex-start">
+            <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="md" />
+            <Flex
+              gap={rem(8)}
+              align="center"
+              justify="flex-start"
+              style={{ cursor: 'pointer' }}
+              onClick={() => {
+                navigate('/');
+                close();
+              }}
+            >
+              <Avatar src={Logo} alt="logo" size={isMobile ? 48 : 64} />
+              <Flex gap={rem(4)} align="flex-start" justify="center" direction="column">
+                <Text className={globalCss.logoText}>TRƯỜNG ĐẠI HỌC GIAO THÔNG VẬN TẢI</Text>
+                {!isMobileSmall && (
+                  <Text className={globalCss.logoSubText}>
+                    UNIVERSITY OF TRANSPORT AND COMMUNICATIONS
+                  </Text>
+                )}
+              </Flex>
             </Flex>
+          </Flex>
+          <Flex justify="flex-end">
+            <SwitchThemeButton />
           </Flex>
         </Flex>
       </AppShell.Header>
 
       <AppShell.Navbar p="md" pb={rem(isMobile ? 50 : 100)}>
-        <Flex direction="column" justify="space-between" h="100%">
-          <Flex direction="column" gap={rem(8)}>
-            <NavLink
-              onClick={() => {
-                navigate('/transportation-enterprise');
-                close();
-              }}
-              label="Doanh nghiệp vận tải"
-              leftSection={<IconTruckDelivery size="1rem" stroke={1.5} />}
-              rightSection={<IconChevronRight size="0.8rem" stroke={1.5} />}
-              variant="subtle"
-              active={location.pathname === '/transportation-enterprise'}
-            />
-            <NavLink
-              onClick={() => {
-                navigate('/manufacturing-enterprise');
-                close();
-              }}
-              label="Doanh nghiệp sản xuất, kinh doanh"
-              leftSection={<IconBuildingFactory size="1rem" stroke={1.5} />}
-              rightSection={<IconChevronRight size="0.8rem" stroke={1.5} />}
-              variant="subtle"
-              active={location.pathname === '/manufacturing-enterprise'}
-            />
-          </Flex>
-          <Flex justify="flex-start">
-            <SwitchThemeButton />
-          </Flex>
+        {/* <Flex direction="column" justify="space-between" h="100%"> */}
+        <Flex direction="column" gap={rem(8)}>
+          <NavLink
+            onClick={() => {
+              navigate('/transportation-enterprise');
+              close();
+            }}
+            label="Doanh nghiệp vận tải"
+            leftSection={<IconTruckDelivery size="1rem" stroke={1.5} />}
+            rightSection={<IconChevronRight size="0.8rem" stroke={1.5} />}
+            variant="subtle"
+            active={location.pathname === '/transportation-enterprise'}
+          />
+          <NavLink
+            onClick={() => {
+              navigate('/manufacturing-enterprise');
+              close();
+            }}
+            label="Doanh nghiệp sản xuất, kinh doanh"
+            leftSection={<IconBuildingFactory size="1rem" stroke={1.5} />}
+            rightSection={<IconChevronRight size="0.8rem" stroke={1.5} />}
+            variant="subtle"
+            active={location.pathname === '/manufacturing-enterprise'}
+          />
         </Flex>
+        {/* </Flex> */}
       </AppShell.Navbar>
 
       <AppShell.Main>{children}</AppShell.Main>
