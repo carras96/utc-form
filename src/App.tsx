@@ -2,14 +2,14 @@ import '@mantine/core/styles.css';
 import { MantineProvider } from '@mantine/core';
 import { Router } from './Router';
 import { theme } from './theme';
-// import AppProvider from './Providers/AppProvider';
+import AppProvider from './Providers/AppProvider';
 
 export default function App() {
   return (
     <MantineProvider theme={theme}>
-      {/* <AppProvider> */}
+      <AppProvider>
         <Router />
-      {/* </AppProvider> */}
+      </AppProvider>
     </MantineProvider>
   );
 }
